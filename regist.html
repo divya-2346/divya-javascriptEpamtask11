@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+  <title> Registration form</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<script>  
+function validateform(){  
+var name=document.myform.name.value;  
+var password=document.myform.password.value; 
+var x=document.myform.email.value;  
+var atposition=x.indexOf("@");  
+var dotposition=x.lastIndexOf("."); 
+var phn=document.myform.phone.value;
+var firstpassword=document.myform.password.value;  
+var secondpassword=document.myform.password2.value;  
+if (name==null || name==""){  
+  alert("Name can't be blank");  
+  return false;  
+}else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }  
+else if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+  alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+  return false;  
+} 
+else if(phn.length!=10)
+{
+alert(" Your Mobile Number must be 1 to 10 Integers");
+return false;
+}
+else if(firstpassword==secondpassword){  
+return true;  
+}  
+else{  
+alert("password must be same!");  
+return false;  
+}  
+
+}  
+</script>  
+<body>
+<div class="wrapper">
+  <div class="title">
+    Register Here
+  </div>
+  <div class="social_media">
+    <div class="item">
+      <button><a href="http://www.facebook.com"><i class="fab fa-facebook"></a></button></i>
+    </div>
+    <div class="item">
+      <button><a href="http://accounts.google.com"><i class="fab fa-google-plus-g"></a></button></i>
+    </div>
+<div class="item">
+      <button><a href="http://www.twitter.com"><i class="fab fa-twitter"></a></button></i>
+    </div>
+  </div>
+<form name="myform" method="post" action="welcome.html" onsubmit="return validateform()">
+  <div class="form" >
+    <div class="input_field">
+      <input type="text" placeholder="Name" name="name" class="input" required>
+      <i class="fas fa-user"></i>
+    </div>
+    <div class="input_field">
+      <input type="text" placeholder="Email" class="input" name="email" required>
+      <i class="far fa-envelope"></i>
+</div>
+<div class="input_field">
+      <input type="tel" placeholder="Phone" class="input" name="phone" required >
+      <i class="fad fa-phone"></i>
+    </div>
+    <div class="input_field">
+      <input type="password" placeholder="Password" name="password" class="input">
+      <i class="fas fa-lock"></i>
+    </div>
+<div class="input_field">
+      <input type="password" placeholder=" Confirm Password" name="password2" class="input">
+      <i class="fas fa-lock"></i>
+    </div>
+<div>
+   <input type="submit" class="btn" value="register">
+  </div>
+</div>
+
+</form>
+
+
+ 
+</body>
